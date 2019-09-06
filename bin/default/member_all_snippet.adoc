@@ -1,0 +1,16 @@
+[[member]]
+
+== 회원 추가 API
+회원정보를 추가하는 API입니다.
+
+operation::member-controller-test/test-add-member[]
+
+== 회원 조회 API
+회원 정보를 조회하는 API입니다.
+
+operation::member-controller-test/test-get-member[]
+
+== 회원 검색 API
+회원 정보를 검색하는 API입니다.
+
+operation::member-controller-test/test-search-member[]

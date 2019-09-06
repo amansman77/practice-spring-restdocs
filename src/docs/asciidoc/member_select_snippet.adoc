@@ -1,0 +1,15 @@
+[[member]]
+== 회원 추가 API
+회원정보를 추가하는 API입니다.
+
+operation::member-controller-test/test-add-member[snippets='curl-request,httpie-request,http-request,request-body,request-fields,http-response,response-body']
+
+== 회원 조회 API
+회원 정보를 조회하는 API입니다.
+
+operation::member-controller-test/test-get-member[snippets='curl-request,httpie-request,http-request,request-headers,response-body,response-fields']
+
+== 회원 검색 API
+회원 정보를 검색하는 API입니다.
+
+operation::member-controller-test/test-search-member[snippets='curl-request,httpie-request,http-request,request-parameters,http-response,response-body,response-fields']

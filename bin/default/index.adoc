@@ -1,0 +1,90 @@
+= Rest Docs Sample API Document
+hhsung
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+
+[[introduction]]
+== 소개
+
+Spring Rest Docs로 API 문서를 만들어 봅니다.
+
+[[common]]
+== 공통 사항
+
+모든 API가 해당되는 사항입니다.
+
+=== Domain
+
+|===
+| 환경 | domain
+
+| 개발서버
+| `192.168.0.1`
+
+| 운영서버
+| `hhsung.com`
+|===
+
+
+=== Header
+
+|===
+| name | 설명
+
+| `Authorization`
+| API를 사용하기 위한 인증 키
+|===
+
+=== Response Body Template
+
+|===
+| field | 설명
+
+| `code`
+| 응답 코드
+
+| `message`
+| 예외사항 내용 등 응답 메세지
+
+| `data`
+| 실제 반환될 데이터
+|===
+
+
+=== Response Code
+
+|===
+| field | 설명
+
+| `200`
+| 정상 응답
+
+| `400`
+| Bad Request
+
+| `401`
+| Unauthorized
+
+| `404`
+| Not Found
+
+| `405`
+| Internal Server Error
+|===
+
+:operation-curl-request-title: Curl 예제
+:operation-http-request-title: HTTP 요청 예제
+:operation-http-response-title: HTTP 응답 예제
+:operation-httpie-request-title: HTTPie 요청 예제
+:operation-request-body-title: Request body 예제
+:operation-request-headers-title: Request 헤더 형식
+:operation-request-fields-title: Request 필드 형식
+:operation-request-parameters-title: Request 파라메터 형식
+:operation-response-body-title: Response body 예제
+:operation-response-fields-title: Response 필드 형식
+
+include::member_all_snippet.adoc[]
