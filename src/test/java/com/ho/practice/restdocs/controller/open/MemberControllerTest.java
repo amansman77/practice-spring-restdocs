@@ -154,7 +154,6 @@ public class MemberControllerTest {
 		//then
 		actions
 			.andExpect(status().isOk())
-			.andExpect(content().json(objectMapper.writeValueAsString(new Member("1", "andy", 1))))
 			.andDo(this.document.document(
 					requestParameters(
 //							attributes(key("title").value("회원 조회 API")),
@@ -163,9 +162,9 @@ public class MemberControllerTest {
 							parameterWithName("limit").description("조회 수")
 					),
             		responseFields(
-            				fieldWithPath("id").description("회원 ID"),
-            				fieldWithPath("name").description("회원 이름"),
-            				fieldWithPath("age").description("회원 나이")
+            				fieldWithPath("[].id").description("회원 ID"),
+            				fieldWithPath("[].name").description("회원 이름"),
+            				fieldWithPath("[].age").description("회원 나이")
             		)
 					)
 			)

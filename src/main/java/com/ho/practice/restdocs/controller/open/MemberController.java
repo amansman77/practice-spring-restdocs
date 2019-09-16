@@ -1,6 +1,8 @@
 package com.ho.practice.restdocs.controller.open;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,11 +47,15 @@ public class MemberController {
 	 * @return
 	 */
 	@GetMapping(value = "/member")
-    public Member getMember(
+    public List<Member> searchMember(
     		@RequestParam(value = "q") String query,
     		@RequestParam String offset,
     		@RequestParam String limit) {
-        return new Member("1", "andy", 1);
+		return Arrays.asList(
+				new Member("1", "andy", 11),
+				new Member("2", "bear", 22),
+				new Member("3", "carry", 33)
+        );
     }
 	
 	/**
