@@ -7,7 +7,7 @@ operation::member-controller-test/test-add-member[snippets='curl-request,httpie-
 == 회원 조회 API
 회원 정보를 조회하는 API입니다.
 
-operation::member-controller-test/test-get-member[snippets='curl-request,httpie-request,http-request,request-headers,response-body,response-fields']
+operation::member-controller-test/test-get-member[snippets='curl-request,httpie-request,http-request,path-parameters,request-headers,response-body,response-fields']
 
 == 회원 검색 API
 회원 정보를 검색하는 API입니다.

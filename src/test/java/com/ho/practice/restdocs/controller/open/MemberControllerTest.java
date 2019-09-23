@@ -11,6 +11,7 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWit
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
 //import static org.springframework.restdocs.snippet.Attributes.attributes;
 //import static org.springframework.restdocs.snippet.Attributes.key;
@@ -28,6 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.JUnitRestDocumentation;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -110,7 +112,7 @@ public class MemberControllerTest {
 		//given
 		
 		//when
-		final ResultActions actions = mockMvc.perform(get("/open/member/1")
+		final ResultActions actions = mockMvc.perform(RestDocumentationRequestBuilders.get("/open/member/{id}", "1")
 														.header("remoteAddr1", "remote1")
 														.header("remoteAddr2", "remote2")
 														.header("remoteAddr3", "remote3")
@@ -128,8 +130,11 @@ public class MemberControllerTest {
 							headerWithName("remoteAddr2").description("Remote Address 2"),
 							headerWithName("remoteAddr3").description("Remote Address 3")
 					),
+					pathParameters(
+	                        parameterWithName("id").description("회원 아이디")
+					),
             		responseFields(
-            				fieldWithPath("id").description("회원 ID"),
+            				fieldWithPath("id").description("회원 아이디"),
             				fieldWithPath("name").description("회원 이름"),
             				fieldWithPath("age").description("회원 나이")
             		)
