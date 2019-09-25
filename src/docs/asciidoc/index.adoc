@@ -84,6 +84,7 @@ Spring Rest Docs로 API 문서를 만들어 봅니다.
 :operation-request-headers-title: Request 헤더 형식
 :operation-request-fields-title: Request 필드 형식
 :operation-request-parameters-title: Request 파라메터 형식
+:operation-response-headers-title: Response 헤더 형식
 :operation-response-body-title: Response body 예제
 :operation-response-fields-title: Response 필드 형식
 

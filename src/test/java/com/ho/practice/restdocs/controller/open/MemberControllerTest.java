@@ -1,6 +1,7 @@
 package com.ho.practice.restdocs.controller.open;
 
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
+import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
@@ -10,6 +11,7 @@ import static org.springframework.restdocs.operation.preprocess.Preprocessors.pr
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
@@ -166,10 +168,11 @@ public class MemberControllerTest {
 							parameterWithName("offset").description("조회 시작점"),
 							parameterWithName("limit").description("조회 수")
 					),
+					responseHeaders(
+							headerWithName("X-Total-Count").description("총 결과 수")
+					),
             		responseFields(
-            				fieldWithPath("[].id").description("회원 ID"),
-            				fieldWithPath("[].name").description("회원 이름"),
-            				fieldWithPath("[].age").description("회원 나이")
+            				subsectionWithPath("memberList.[]").description("회원 목록")
             		)
 					)
 			)
