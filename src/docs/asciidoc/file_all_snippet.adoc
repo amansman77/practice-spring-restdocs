@@ -1,0 +1,6 @@
+[[file]]
+
+== 파일 업로드 API
+파일을 업로드하는 API입니다.
+
+operation::file-controller-test/test-save-file[]

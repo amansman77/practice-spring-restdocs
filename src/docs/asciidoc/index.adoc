@@ -89,3 +89,4 @@ Spring Rest Docs로 API 문서를 만들어 봅니다.
 :operation-response-fields-title: Response 필드 형식
 
 include::member_all_snippet.adoc[]
+include::file_all_snippet.adoc[]
