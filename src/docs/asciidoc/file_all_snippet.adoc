@@ -4,3 +4,8 @@
 파일을 업로드하는 API입니다.
 
 operation::file-controller-test/test-save-file[]
+
+== 파일 다운로드 API
+파일을 다운로드하는 API입니다.
+
+operation::file-controller-test/test-download-file[]

@@ -5,9 +5,11 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.charset.StandardCharsets;
@@ -78,6 +80,25 @@ public class FileControllerTest {
             .andExpect(status().isOk())
 			.andExpect(content().string("success"))
 			.andDo(this.document.document(
+                )
+            )
+            ;
+    }
+
+    @Test
+    public void testDownloadFile() throws Exception {
+        // given
+
+        // when
+        ResultActions actions = mockMvc.perform(get(serviceUrl))
+            .andDo(print());
+            
+        //then
+        actions
+            .andExpect(status().isOk())
+            .andExpect(header().string("Content-Type", "application/zip"))
+            .andExpect(header().string("Content-disposition", "attachment; filename=sample.zip"))
+            .andDo(this.document.document(
                 )
             )
             ;
